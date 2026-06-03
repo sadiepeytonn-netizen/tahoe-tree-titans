@@ -15,7 +15,6 @@ export default function Home() {
     <>
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
 
-      {/* Hero */}
       <section style={{
         position: 'relative',
         minHeight: 'calc(100vh - 80px)',
@@ -40,7 +39,6 @@ export default function Home() {
           }} />
         </motion.div>
 
-        {/* Badge */}
         <motion.div
           style={{
             position: 'absolute', top: 32, left: 32, zIndex: 10,
@@ -166,12 +164,12 @@ export default function Home() {
             fontFamily: "'Space Grotesk', sans-serif", fontSize: 10, fontWeight: 700,
             color: '#E07A20', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 12,
           }}>Schedule Evaluation</p>
-          <a href="tel:5303070808" style={{
+          <Link to="/contact" style={{
             display: 'flex', alignItems: 'center', gap: 10,
             background: 'linear-gradient(135deg, #E07A20, #F5A623)',
             color: '#0F1A09', padding: '12px 20px', borderRadius: 10,
             fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 14, textDecoration: 'none',
-          }}>📞 (530) 307-0808</a>
+          }}>📋 Get Free Evaluation</Link>
           <p style={{
             fontFamily: "'Space Grotesk', sans-serif", fontSize: 11,
             color: 'rgba(245,240,232,0.4)', marginTop: 10,
@@ -179,27 +177,27 @@ export default function Home() {
         </motion.div>
 
         {/* Mobile CTA */}
-        <motion.a href="tel:5303070808" className="mobile-cta" style={{
-          position: 'fixed', bottom: 16, left: 16, right: 16, zIndex: 50,
-          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
-          background: 'linear-gradient(135deg, #E07A20, #F5A623)',
-          color: '#0F1A09', padding: 18, borderRadius: 14,
-          fontFamily: "'Black Han Sans', Impact, sans-serif",
-          fontSize: 18, fontWeight: 900, letterSpacing: '0.05em', textDecoration: 'none',
-          boxShadow: '0 8px 32px rgba(224,122,32,0.5)',
-        }}
+        <motion.div
+          className="mobile-cta"
+          style={{ position: 'fixed', bottom: 16, left: 16, right: 16, zIndex: 50 }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
         >
-          📞 Call (530) 307-0808
-        </motion.a>
+          <Link to="/contact" style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
+            background: 'linear-gradient(135deg, #E07A20, #F5A623)',
+            color: '#0F1A09', padding: 18, borderRadius: 14,
+            fontFamily: "'Black Han Sans', Impact, sans-serif",
+            fontSize: 18, fontWeight: 900, letterSpacing: '0.05em', textDecoration: 'none',
+            boxShadow: '0 8px 32px rgba(224,122,32,0.5)',
+          }}>
+            📋 Get Free Evaluation
+          </Link>
+        </motion.div>
       </section>
 
-      {/* Reviews section on home page */}
       <Reviews />
-
-      {/* Footer */}
       <Footer />
 
       <style>{`
