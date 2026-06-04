@@ -2,28 +2,28 @@ import RevealOnScroll from './RevealOnScroll'
 
 const reviews = [
   {
-    name: 'M. Henderson',
-    text: 'Tahoe Tree Titans removed two massive pines that were threatening our cabin. Incredible precision and professionalism. They left the property cleaner than they found it.',
+    name: 'Paul Hale',
+    text: 'I highly recommend Tahoe Tree Titans!!! Anything from fire prevention to dropping the huge trees with precision these guys can do it all. On top of the great work the customer service & guidance is top notch.',
   },
   {
-    name: 'J. Kowalski',
-    text: 'After a heavy snow season, we needed emergency pruning. These guys showed up same day and handled everything. True titans of their craft.',
+    name: 'Matt Koenig',
+    text: 'Josh and his crew were absolutely great! They cut down and removed 15 trees and stumps around my house. They also chipped up everything and set the wood chips aside for me to use later. Communication and execution couldn\'t have been better. Definitely highly recommended.',
   },
   {
-    name: 'S. Nakamura',
-    text: "Got our defensible space inspection done and they handled all the work needed. Five stars doesn't do them justice.",
+    name: 'Tyler Matta',
+    text: 'Tahoe Tree Titans were great. They showed up to assess the trees in a timely manner. The pricing was competitive, and the work was professional.',
   },
   {
-    name: 'R. Calloway',
-    text: 'The crane work was something else. Watched them remove a 90-foot pine in sections without disturbing a single flower bed. Artists with chainsaws.',
+    name: 'Lauren Cheh',
+    text: 'Great experience with these guys and their service. I needed to get some tree trimming and tree removals done in order to keep up to date with compliance for home owners insurance, they helped me complete all requests. They were able to schedule quickly and communicated well. My yard looks great, they cleaned up real well after hauling off everything they cut out. I would highly recommend.',
   },
   {
-    name: 'D. Petrov',
-    text: 'Best tree service in the Tahoe basin, period. Fair pricing, honest assessment, and the crew is incredibly skilled and respectful.',
+    name: 'Joe Bennett',
+    text: 'Tahoe Tree Titans to my Rescue!!! Had an Emergency Situation. My tree was days from falling into my house! The guys didn\'t hesitate getting to me! Came out quoted me and chopped the tree down the same day! Price was a lot more affordable than everyone else. Plus these guys really took my situation serious. 10 outta 10!!!',
   },
   {
-    name: 'L. Thompson',
-    text: 'They pruned our entire property for fire safety compliance. Knowledgeable about local regulations and did beautiful work. Our views are incredible now.',
+    name: 'Dan Scheibelein',
+    text: 'Josh and the whole Tree Titans team is one of the most professional and diligent tree services in NorCal. They were on time, had impeccable communication, while making it look like they had never been in my yard at all, except the extra sunshine! Will be recommending in the future.',
   },
 ]
 
@@ -61,7 +61,7 @@ export default function Reviews() {
                 color: 'rgba(245,240,232,0.4)',
                 marginTop: 4,
               }}>
-                10 Google Reviews
+                Google Reviews
               </p>
               <div style={{
                 width: 40,
