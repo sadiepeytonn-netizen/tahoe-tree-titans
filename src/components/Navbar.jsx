@@ -104,7 +104,12 @@ export default function Navbar() {
           </Link>
 
           {/* Services dropdown */}
-          <div ref={dropdownRef} style={{ position: 'relative' }}>
+          <div
+            ref={dropdownRef}
+            style={{ position: 'relative' }}
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               style={{
