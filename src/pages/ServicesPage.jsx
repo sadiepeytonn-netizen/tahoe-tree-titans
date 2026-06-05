@@ -3,73 +3,69 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import RevealOnScroll from '../components/RevealOnScroll'
 
+const PhoneIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+  </svg>
+)
+
 const services = [
   {
     title: 'Tree Removal',
-    icon: '🌲',
     image: '/svc-tree-removal.png',
     description: 'Safe, efficient removal of hazardous or unwanted trees using advanced rigging techniques and heavy equipment. We handle everything from small ornamentals to massive Sierra Nevada pines.',
     details: ['Hazard assessment', 'Crane-assisted removal', 'Complete site cleanup', 'Stump grinding available'],
   },
   {
     title: 'Crane Work',
-    icon: '🏗️',
     image: '/svc-crane.png',
     description: 'Specialized crane operations for large-scale tree removals in tight or difficult access areas. Our crane work allows us to safely remove trees that would otherwise be impossible to take down.',
     details: ['Large tree removal', 'Tight access areas', 'Precision lowering', 'Heavy equipment operation'],
   },
   {
     title: 'Emergency Work',
-    icon: '⚡',
     image: '/svc-emergency.png',
     description: 'Rapid response for storm damage, fallen trees, and hazardous situations threatening your home or property. We understand emergencies don\'t wait — neither do we.',
     details: ['24/7 emergency response', 'Storm damage cleanup', 'Hazard mitigation', 'Insurance documentation'],
   },
   {
     title: 'Tree Limbing',
-    icon: '✂️',
     image: '/svc-limbing.png',
     description: 'Professional limb removal to reduce weight, improve structure, and eliminate hazards. Proper limbing promotes long-term tree health and protects your property.',
     details: ['Weight reduction', 'Clearance trimming', 'Hazard limb removal', 'Structural improvement'],
   },
   {
     title: 'Stump Grinding',
-    icon: '🪵',
     image: '/svc-stump.png',
     description: 'Complete stump removal using professional grinding equipment. We grind stumps below grade so you can reclaim your yard, plant new vegetation, or build on the area.',
     details: ['Below-grade grinding', 'Debris cleanup', 'Yard restoration', 'All stump sizes'],
   },
   {
     title: 'Ornamental Pruning',
-    icon: '🌿',
     image: '/svc-ornamental.png',
     description: 'Expert pruning for ornamental trees and shrubs to enhance beauty, promote healthy growth, and maintain the aesthetic appeal of your landscape.',
     details: ['Crown shaping', 'Vista pruning', 'Seasonal pruning', 'Canopy management'],
   },
   {
     title: 'Defensible Space',
-    icon: '🛡️',
     image: '/svc-defensible.png',
     description: 'California-compliant defensible space creation to protect your home from wildfire. We clear vegetation, manage ladder fuels, and ensure you meet Zone 1 and Zone 2 requirements.',
     details: ['Zone 1 & 2 compliance', 'Ladder fuel removal', 'Brush clearing', 'CAL FIRE standards'],
   },
   {
     title: 'Wildfire Mitigation',
-    icon: '🔥',
     image: '/svc-wildfire.png',
     description: 'Comprehensive fire risk reduction drawing on our team\'s 7+ years of US Forest Service experience. We understand fire behavior and know exactly how to protect your property in the Sierra Nevada.',
     details: ['Fuel load reduction', 'Canopy spacing', 'Forest Service methods', 'Risk assessment'],
   },
   {
     title: 'Pine Needle Cleanup',
-    icon: '🍂',
     image: '/svc-pineneedle.png',
     description: 'Thorough pine needle and debris removal from roofs, gutters, decks, and surrounding property. Pine needle buildup is a major fire hazard in Tahoe — keep your property clean and safe.',
     details: ['Roof & gutter clearing', 'Deck cleanup', 'Fire risk reduction', 'Seasonal service'],
   },
   {
     title: 'Firewood',
-    icon: '🪓',
     image: '/svc-firewood.png',
     description: 'Seasoned Sierra Nevada firewood sourced from our tree removal work. Quality hardwood and softwood available, split and ready to burn. Perfect for Tahoe winters.',
     details: ['Split & seasoned', 'Local Sierra Nevada wood', 'Delivery available', 'Bulk orders welcome'],
@@ -162,7 +158,6 @@ export default function ServicesPage() {
 
                   {/* Content */}
                   <div style={{ padding: '20px 24px 28px' }}>
-                    <div style={{ fontSize: 28, marginBottom: 8 }}>{svc.icon}</div>
                     <h3 style={{
                       fontFamily: "'Black Han Sans', Impact, sans-serif",
                       fontSize: 22, fontWeight: 900, letterSpacing: '0.05em',
@@ -227,7 +222,7 @@ export default function ServicesPage() {
                 onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
                 onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
               >
-                📞 (530) 307-0808
+                <PhoneIcon /> (530) 307-0808
               </a>
             </div>
           </RevealOnScroll>
