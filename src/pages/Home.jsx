@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* ── TRUST BADGES ── */}
-      <section style={{ background: '#0A1206', padding: '64px 32px', borderBottom: '1px solid rgba(224,122,32,0.15)' }}>
+      <section style={{ background: '#0A1206', padding: '64px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 16 }}>
             {trustStats.map((item, i) => (
@@ -210,7 +210,9 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES PREVIEW ── */}
-      <section style={{ background: '#F5F0E8', padding: '80px 32px' }}>
+      <section style={{ position: 'relative', background: '#F5F0E8', padding: '100px 32px' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, #0A1206, #F5F0E8)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to top, #0A0600, #F5F0E8)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
@@ -256,7 +258,7 @@ export default function Home() {
       </section>
 
       {/* ── EMERGENCY CTA ── */}
-      <section style={{ background: '#0A0600', padding: '80px 32px', borderTop: '2px solid #E07A20', borderBottom: '2px solid #E07A20', textAlign: 'center' }}>
+      <section style={{ background: '#0A0600', padding: '80px 32px', textAlign: 'center' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <RevealOnScroll>
             <motion.div
@@ -326,7 +328,9 @@ export default function Home() {
       <Reviews />
 
       {/* ── GOOGLE REVIEWS BADGE ── */}
-      <section style={{ background: '#F5F0E8', padding: '64px 32px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', background: '#F5F0E8', padding: '100px 32px', textAlign: 'center' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, #0F1A09, #F5F0E8)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to top, #0A1206, #F5F0E8)', pointerEvents: 'none' }} />
         <RevealOnScroll>
           <motion.div
             style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 16, background: '#0F1A09', border: '1px solid rgba(224,122,32,0.3)', borderRadius: 20, padding: '40px 56px' }}
