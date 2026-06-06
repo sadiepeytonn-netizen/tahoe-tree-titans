@@ -210,28 +210,26 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES PREVIEW ── */}
-      <section style={{ position: 'relative', background: '#F5F0E8', padding: '100px 32px' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, #0A1206, #F5F0E8)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to top, #0A0600, #F5F0E8)', pointerEvents: 'none' }} />
+      <section style={{ background: '#0F1A09', padding: '80px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <RevealOnScroll>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
               <div style={{ width: 32, height: 3, background: '#E07A20', borderRadius: 99 }} />
               <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', color: '#E07A20', textTransform: 'uppercase' }}>What We Do</span>
             </div>
-            <h2 style={{ fontFamily: "'Black Han Sans', Impact, sans-serif", fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 900, letterSpacing: '0.03em', color: '#0F1A09', lineHeight: 0.92, marginBottom: 40 }}>OUR SERVICES</h2>
+            <h2 style={{ fontFamily: "'Black Han Sans', Impact, sans-serif", fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 900, letterSpacing: '0.03em', color: '#F5F0E8', lineHeight: 0.92, marginBottom: 40 }}>OUR SERVICES</h2>
           </RevealOnScroll>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 12, marginBottom: 36 }}>
             {servicesList.map((svc, i) => (
               <RevealOnScroll key={i} delay={i * 0.05}>
-                <motion.div whileHover={{ y: -4, borderColor: '#E07A20' }} transition={{ duration: 0.2 }}>
+                <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
                   <Link to="/services" style={{
                     display: 'flex', alignItems: 'center', gap: 12,
-                    background: '#0F1A09', borderRadius: 12, padding: '14px 18px',
-                    textDecoration: 'none', border: '1px solid transparent', transition: 'border-color 0.2s',
+                    background: '#0A1206', borderRadius: 12, padding: '14px 18px',
+                    textDecoration: 'none', border: '1px solid rgba(245,240,232,0.08)', transition: 'border-color 0.2s',
                   }}
                     onMouseEnter={e => e.currentTarget.style.borderColor = '#E07A20'}
-                    onMouseLeave={e => e.currentTarget.style.borderColor = 'transparent'}
+                    onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(245,240,232,0.08)'}
                   >
                     <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#E07A20', flexShrink: 0 }} />
                     <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 13, fontWeight: 600, color: '#F5F0E8' }}>{svc.name}</span>
@@ -244,21 +242,18 @@ export default function Home() {
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.15 }} style={{ display: 'inline-block' }}>
               <Link to="/services" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 10,
-                background: '#0F1A09', color: '#F5F0E8', padding: '14px 28px', borderRadius: 10,
-                fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 600,
+                background: 'linear-gradient(135deg, #E07A20, #F5A623)', color: '#0F1A09',
+                padding: '14px 28px', borderRadius: 10,
+                fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 700,
                 letterSpacing: '0.08em', textDecoration: 'none', textTransform: 'uppercase',
-                transition: 'background 0.2s',
-              }}
-                onMouseEnter={e => e.currentTarget.style.background = '#E07A20'}
-                onMouseLeave={e => e.currentTarget.style.background = '#0F1A09'}
-              >View All Services →</Link>
+              }}>View All Services →</Link>
             </motion.div>
           </RevealOnScroll>
         </div>
       </section>
 
       {/* ── EMERGENCY CTA ── */}
-      <section style={{ background: '#0A0600', padding: '80px 32px', textAlign: 'center' }}>
+      <section style={{ background: '#0A1206', padding: '80px 32px', textAlign: 'center', borderTop: '1px solid rgba(224,122,32,0.15)', borderBottom: '1px solid rgba(224,122,32,0.15)' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <RevealOnScroll>
             <motion.div
@@ -328,12 +323,10 @@ export default function Home() {
       <Reviews />
 
       {/* ── GOOGLE REVIEWS BADGE ── */}
-      <section style={{ position: 'relative', background: '#F5F0E8', padding: '100px 32px', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, #0F1A09, #F5F0E8)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to top, #0A1206, #F5F0E8)', pointerEvents: 'none' }} />
+      <section style={{ background: '#0F1A09', padding: '80px 32px', textAlign: 'center' }}>
         <RevealOnScroll>
           <motion.div
-            style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 16, background: '#0F1A09', border: '1px solid rgba(224,122,32,0.3)', borderRadius: 20, padding: '40px 56px' }}
+            style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: 16, background: '#0A1206', border: '1px solid rgba(224,122,32,0.3)', borderRadius: 20, padding: '40px 56px' }}
             whileHover={{ borderColor: '#E07A20', boxShadow: '0 8px 40px rgba(224,122,32,0.15)' }} transition={{ duration: 0.3 }}
           >
             <div style={{ display: 'flex', gap: 6 }}>
