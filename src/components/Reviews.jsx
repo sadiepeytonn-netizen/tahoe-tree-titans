@@ -39,8 +39,8 @@ export default function Reviews() {
       }}>
         {/* Sticky rating badge */}
         <div style={{ flex: '0 0 260px' }}>
-          <RevealOnScroll>
-            <div style={{ position: 'sticky', top: 120 }}>
+          <div style={{ position: 'sticky', top: 120 }}>
+            <RevealOnScroll>
               <div style={{ display: 'flex', gap: 4, marginBottom: 16 }}>
                 {[...Array(5)].map((_, i) => (
                   <span key={i} style={{ fontSize: 28, color: '#E07A20' }}>★</span>
@@ -78,8 +78,8 @@ export default function Reviews() {
               }}>
                 TITAN<br />TRUST
               </div>
-            </div>
-          </RevealOnScroll>
+            </RevealOnScroll>
+          </div>
         </div>
 
         {/* Reviews list */}
