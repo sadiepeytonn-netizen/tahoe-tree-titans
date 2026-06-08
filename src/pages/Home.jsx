@@ -1,8 +1,7 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import RevealOnScroll from '../components/RevealOnScroll'
-import LoadingScreen from '../components/LoadingScreen'
 import Reviews from '../components/Reviews'
 import AnimatedNumber from '../components/AnimatedNumber'
 import PageTransition from '../components/PageTransition'
@@ -60,7 +59,7 @@ function AnimatedHeading({ text, color, delay = 0 }) {
 }
 
 export default function Home() {
-  const [loading, setLoading] = useState(true)
+  const [hovered, setHovered] = useState(false)
   const heroRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.12])
@@ -69,7 +68,6 @@ export default function Home() {
 
   return (
     <PageTransition>
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
 
       {/* ── HERO ── */}
       <section ref={heroRef} style={{ position: 'relative', minHeight: 'calc(100vh - 80px)', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
