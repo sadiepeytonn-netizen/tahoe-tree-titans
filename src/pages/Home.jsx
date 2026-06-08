@@ -17,10 +17,16 @@ const trustStats = [
 ]
 
 const servicesList = [
-  { name: 'Tree Removal' }, { name: 'Crane Work' }, { name: 'Emergency Work' },
-  { name: 'Tree Limbing' }, { name: 'Stump Grinding' }, { name: 'Ornamental Pruning' },
-  { name: 'Defensible Space' }, { name: 'Wildfire Mitigation' }, { name: 'Pine Needle Cleanup' },
-  { name: 'Firewood' },
+  { name: 'Tree Removal', path: '/services/tree-removal' },
+  { name: 'Crane Work', path: '/services/crane-work' },
+  { name: 'Emergency Work', path: '/services/emergency-tree-service' },
+  { name: 'Tree Limbing', path: '/services/tree-limbing' },
+  { name: 'Stump Grinding', path: '/services/stump-grinding' },
+  { name: 'Ornamental Pruning', path: '/services/ornamental-pruning' },
+  { name: 'Defensible Space', path: '/services/defensible-space' },
+  { name: 'Wildfire Mitigation', path: '/services/wildfire-mitigation' },
+  { name: 'Pine Needle Cleanup', path: '/services/pine-needle-cleanup' },
+  { name: 'Firewood', path: '/services/firewood' },
 ]
 
 const serviceAreas = [
@@ -221,7 +227,7 @@ export default function Home() {
             {servicesList.map((svc, i) => (
               <RevealOnScroll key={i} delay={i * 0.05}>
                 <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-                  <Link to="/services" style={{
+                  <Link to={svc.path} style={{
                     display: 'flex', alignItems: 'center', gap: 12,
                     background: '#0A1206', borderRadius: 12, padding: '14px 18px',
                     textDecoration: 'none', border: '1px solid rgba(245,240,232,0.08)', transition: 'border-color 0.2s',
@@ -370,7 +376,7 @@ function Footer() {
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
         <img src="/logo-text.png" alt="Tahoe Tree Titans" style={{ height: 40, width: 'auto' }} />
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-          {[['Home', '/'], ['Services', '/services'], ['About Us', '/about'], ['Contact Us', '/contact']].map(([label, path]) => (
+          {[['Home', '/'], ['Services', '/services'], ['Gallery', '/gallery'], ['About Us', '/about'], ['Contact Us', '/contact']].map(([label, path]) => (
             <Link key={path} to={path} style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 13, color: 'rgba(245,240,232,0.5)', textDecoration: 'none', transition: 'color 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#E07A20'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,240,232,0.5)'}
