@@ -259,7 +259,7 @@ export default function ContactPage() {
               >
                 <iframe
                   title="South Lake Tahoe Service Area"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99776.47486600987!2d-120.09320631640625!3d38.93206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809977d3ee1e59e7%3A0xd5c2b5c7bc1680df!2sSouth%20Lake%20Tahoe%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d197484.23!2d-120.09320631640625!3d39.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809977d3ee1e59e7%3A0xd5c2b5c7bc1680df!2sLake%20Tahoe%20Basin!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                   width="100%" height="450"
                   style={{ border: 0, display: 'block' }}
                   allowFullScreen="" loading="lazy"
