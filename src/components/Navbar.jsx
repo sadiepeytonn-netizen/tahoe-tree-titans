@@ -139,6 +139,11 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
+          <Link to="/gallery" style={navLinkStyle('/gallery')}
+            onMouseEnter={e => { if (!isActive('/gallery')) e.currentTarget.style.color = '#E07A20' }}
+            onMouseLeave={e => { if (!isActive('/gallery')) e.currentTarget.style.color = '#F5F0E8' }}
+          >Gallery</Link>
+
           <Link to="/about" style={navLinkStyle('/about')}
             onMouseEnter={e => { if (!isActive('/about')) e.currentTarget.style.color = '#E07A20' }}
             onMouseLeave={e => { if (!isActive('/about')) e.currentTarget.style.color = '#F5F0E8' }}
@@ -217,7 +222,7 @@ export default function Navbar() {
             }}
           >
             <div style={{ padding: '16px 32px 24px', display: 'flex', flexDirection: 'column', gap: 0 }}>
-              {[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/about' }, { label: 'Contact Us', path: '/contact' }].map((item, i) => (
+              {[{ label: 'Home', path: '/' }, { label: 'Gallery', path: '/gallery' }, { label: 'About Us', path: '/about' }, { label: 'Contact Us', path: '/contact' }].map((item, i) => (
                 <motion.div key={item.path} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.06, duration: 0.3 }}>
                   <Link to={item.path} style={{
                     fontFamily: "'Space Grotesk', sans-serif", fontSize: 16, fontWeight: 600,
