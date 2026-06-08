@@ -11,16 +11,16 @@ const PhoneIcon = () => (
 )
 
 const services = [
-  { title: 'Tree Removal', image: '/svc-tree-removal.png', description: 'Safe, efficient removal of hazardous or unwanted trees using advanced rigging techniques and heavy equipment. We handle everything from small ornamentals to massive Sierra Nevada pines.', details: ['Hazard assessment', 'Crane-assisted removal', 'Complete site cleanup', 'Stump grinding available'] },
-  { title: 'Crane Work', image: '/svc-crane.png', description: 'Specialized crane operations for large-scale tree removals in tight or difficult access areas. Our crane work allows us to safely remove trees that would otherwise be impossible to take down.', details: ['Large tree removal', 'Tight access areas', 'Precision lowering', 'Heavy equipment operation'] },
-  { title: 'Emergency Work', image: '/svc-emergency.png', description: "Rapid response for storm damage, fallen trees, and hazardous situations threatening your home or property. We understand emergencies don't wait — neither do we.", details: ['24/7 emergency response', 'Storm damage cleanup', 'Hazard mitigation', 'Insurance documentation'] },
-  { title: 'Tree Limbing', image: '/svc-limbing.png', description: 'Professional limb removal to reduce weight, improve structure, and eliminate hazards. Proper limbing promotes long-term tree health and protects your property.', details: ['Weight reduction', 'Clearance trimming', 'Hazard limb removal', 'Structural improvement'] },
-  { title: 'Stump Grinding', image: '/svc-stump.png', description: 'Complete stump removal using professional grinding equipment. We grind stumps below grade so you can reclaim your yard, plant new vegetation, or build on the area.', details: ['Below-grade grinding', 'Debris cleanup', 'Yard restoration', 'All stump sizes'] },
-  { title: 'Ornamental Pruning', image: '/svc-ornamental.png', description: 'Expert pruning for ornamental trees and shrubs to enhance beauty, promote healthy growth, and maintain the aesthetic appeal of your landscape.', details: ['Crown shaping', 'Vista pruning', 'Seasonal pruning', 'Canopy management'] },
-  { title: 'Defensible Space', image: '/svc-defensible.png', description: 'California-compliant defensible space creation to protect your home from wildfire. We clear vegetation, manage ladder fuels, and ensure you meet Zone 1 and Zone 2 requirements.', details: ['Zone 1 & 2 compliance', 'Ladder fuel removal', 'Brush clearing', 'CAL FIRE standards'] },
-  { title: 'Wildfire Mitigation', image: '/svc-wildfire.png', description: "Comprehensive fire risk reduction drawing on our team's 7+ years of US Forest Service experience. We understand fire behavior and know exactly how to protect your property.", details: ['Fuel load reduction', 'Canopy spacing', 'Forest Service methods', 'Risk assessment'] },
-  { title: 'Pine Needle Cleanup', image: '/svc-pineneedle.png', description: 'Thorough pine needle and debris removal from roofs, gutters, decks, and surrounding property. Pine needle buildup is a major fire hazard in Tahoe.', details: ['Roof & gutter clearing', 'Deck cleanup', 'Fire risk reduction', 'Seasonal service'] },
-  { title: 'Firewood', image: '/svc-firewood.png', description: 'Seasoned Sierra Nevada firewood sourced from our tree removal work. Quality hardwood and softwood available, split and ready to burn. Perfect for Tahoe winters.', details: ['Split & seasoned', 'Local Sierra Nevada wood', 'Delivery available', 'Bulk orders welcome'] },
+  { title: 'Tree Removal', image: '/svc-tree-removal.png', path: '/services/tree-removal', description: 'Safe, efficient removal of hazardous or unwanted trees using advanced rigging techniques and heavy equipment. We handle everything from small ornamentals to massive Sierra Nevada pines.', details: ['Hazard assessment', 'Crane-assisted removal', 'Complete site cleanup', 'Stump grinding available'] },
+  { title: 'Crane Work', image: '/svc-crane.png', path: '/services/crane-work', description: 'Specialized crane operations for large-scale tree removals in tight or difficult access areas. Our crane work allows us to safely remove trees that would otherwise be impossible to take down.', details: ['Large tree removal', 'Tight access areas', 'Precision lowering', 'Heavy equipment operation'] },
+  { title: 'Emergency Work', image: '/svc-emergency.png', path: '/services/emergency-tree-service', description: "Rapid response for storm damage, fallen trees, and hazardous situations threatening your home or property. We understand emergencies don't wait — neither do we.", details: ['24/7 emergency response', 'Storm damage cleanup', 'Hazard mitigation', 'Insurance documentation'] },
+  { title: 'Tree Limbing', image: '/svc-limbing.png', path: '/services/tree-limbing', description: 'Professional limb removal to reduce weight, improve structure, and eliminate hazards. Proper limbing promotes long-term tree health and protects your property.', details: ['Weight reduction', 'Clearance trimming', 'Hazard limb removal', 'Structural improvement'] },
+  { title: 'Stump Grinding', image: '/svc-stump.png', path: '/services/stump-grinding', description: 'Complete stump removal using professional grinding equipment. We grind stumps below grade so you can reclaim your yard, plant new vegetation, or build on the area.', details: ['Below-grade grinding', 'Debris cleanup', 'Yard restoration', 'All stump sizes'] },
+  { title: 'Ornamental Pruning', image: '/svc-ornamental.png', path: '/services/ornamental-pruning', description: 'Expert pruning for ornamental trees and shrubs to enhance beauty, promote healthy growth, and maintain the aesthetic appeal of your landscape.', details: ['Crown shaping', 'Vista pruning', 'Seasonal pruning', 'Canopy management'] },
+  { title: 'Defensible Space', image: '/svc-defensible.png', path: '/services/defensible-space', description: 'California-compliant defensible space creation to protect your home from wildfire. We clear vegetation, manage ladder fuels, and ensure you meet Zone 1 and Zone 2 requirements.', details: ['Zone 1 & 2 compliance', 'Ladder fuel removal', 'Brush clearing', 'CAL FIRE standards'] },
+  { title: 'Wildfire Mitigation', image: '/svc-wildfire.png', path: '/services/wildfire-mitigation', description: "Comprehensive fire risk reduction drawing on our team's 7+ years of US Forest Service experience. We understand fire behavior and know exactly how to protect your property.", details: ['Fuel load reduction', 'Canopy spacing', 'Forest Service methods', 'Risk assessment'] },
+  { title: 'Pine Needle Cleanup', image: '/svc-pineneedle.png', path: '/services/pine-needle-cleanup', description: 'Thorough pine needle and debris removal from roofs, gutters, decks, and surrounding property. Pine needle buildup is a major fire hazard in Tahoe.', details: ['Roof & gutter clearing', 'Deck cleanup', 'Fire risk reduction', 'Seasonal service'] },
+  { title: 'Firewood', image: '/svc-firewood.png', path: '/services/firewood', description: 'Seasoned Sierra Nevada firewood sourced from our tree removal work. Quality hardwood and softwood available, split and ready to burn. Perfect for Tahoe winters.', details: ['Split & seasoned', 'Local Sierra Nevada wood', 'Delivery available', 'Bulk orders welcome'] },
 ]
 
 export default function ServicesPage() {
@@ -59,13 +59,14 @@ export default function ServicesPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 24 }}>
             {services.map((svc, i) => (
               <RevealOnScroll key={svc.title} delay={(i % 3) * 0.1}>
-                <motion.div
-                  style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', cursor: 'default', border: hoveredIdx === i ? '2px solid #E07A20' : '2px solid rgba(245,240,232,0.08)', background: '#0A1206' }}
-                  onMouseEnter={() => setHoveredIdx(i)}
-                  onMouseLeave={() => setHoveredIdx(null)}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                >
+                <Link to={svc.path} style={{ textDecoration: 'none', display: 'block' }}>
+                  <motion.div
+                    style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', cursor: 'pointer', border: hoveredIdx === i ? '2px solid #E07A20' : '2px solid rgba(245,240,232,0.08)', background: '#0A1206' }}
+                    onMouseEnter={() => setHoveredIdx(i)}
+                    onMouseLeave={() => setHoveredIdx(null)}
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
                   <div style={{ position: 'relative', height: 200, overflow: 'hidden' }}>
                     <motion.img
                       src={svc.image} alt={svc.title}
@@ -95,7 +96,8 @@ export default function ServicesPage() {
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               </RevealOnScroll>
             ))}
           </div>
