@@ -84,23 +84,23 @@ export default function Navbar() {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button onClick={() => setDropdownOpen(!dropdownOpen)} style={{
+            <Link to="/services" style={{
               fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 600,
               letterSpacing: '0.05em', color: isActive('/services') ? '#E07A20' : '#F5F0E8',
               textTransform: 'uppercase', background: 'none', border: 'none', cursor: 'pointer',
-              display: 'flex', alignItems: 'center', gap: 4,
+              display: 'flex', alignItems: 'center', gap: 4, textDecoration: 'none',
               borderBottom: isActive('/services') ? '2px solid #E07A20' : '2px solid transparent',
               paddingBottom: 2, transition: 'color 0.2s',
             }}
               onMouseEnter={e => { if (!isActive('/services')) e.currentTarget.style.color = '#E07A20' }}
-              onMouseLeave={e => { if (!isActive('/services') && !dropdownOpen) e.currentTarget.style.color = '#F5F0E8' }}
+              onMouseLeave={e => { if (!isActive('/services')) e.currentTarget.style.color = '#F5F0E8' }}
             >
               Services
               <motion.span style={{ fontSize: 10, display: 'inline-block' }}
                 animate={{ rotate: dropdownOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >▼</motion.span>
-            </button>
+            </Link>
 
             <AnimatePresence>
               {dropdownOpen && (
