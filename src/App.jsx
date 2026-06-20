@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import ExitIntent from './components/ExitIntent'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
@@ -36,7 +37,6 @@ function AnimatedRoutes() {
         <Route path="/services/pine-needle-cleanup" element={<PineNeedleCleanupPage />} />
         <Route path="/services/firewood" element={<FirewoodPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
@@ -47,6 +47,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <ExitIntent />
       <AnimatedRoutes />
