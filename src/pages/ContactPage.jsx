@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import RevealOnScroll from '../components/RevealOnScroll'
 import PageTransition from '../components/PageTransition'
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkolwabd'
+
 const serviceAreas = [
   'South Lake Tahoe, CA', 'Stateline, NV', 'Meyers, CA', 'Tahoe City, CA',
   'Kings Beach, CA', 'Incline Village, NV', 'Truckee, CA', 'Echo Lake, CA',
@@ -13,6 +15,8 @@ const serviceAreas = [
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', description: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(false)
 
   const inputStyle = {
     width: '100%', boxSizing: 'border-box',
@@ -26,6 +30,36 @@ export default function ContactPage() {
     fontFamily: "'Space Grotesk', sans-serif", fontSize: 10, fontWeight: 700,
     letterSpacing: '0.2em', color: 'rgba(245,240,232,0.5)', textTransform: 'uppercase',
     display: 'block', marginBottom: 8,
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setError(false)
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.description,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        setError(true)
+      }
+    } catch (err) {
+      setError(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -99,37 +133,36 @@ export default function ContactPage() {
                     <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 15, color: 'rgba(245,240,232,0.5)', marginTop: 8 }}>We'll be in touch shortly. The Titans are on their way.</p>
                   </motion.div>
                 ) : (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                    {[
-                      { label: 'Full Name', key: 'name', type: 'text', placeholder: 'John Smith', col: 'half' },
-                      { label: 'Phone Number', key: 'phone', type: 'tel', placeholder: '(530) 555-0000', col: 'half' },
-                    ].reduce((acc, _, i, arr) => i % 2 === 0 ? [...acc, arr.slice(i, i+2)] : acc, []).map((pair, pi) => (
-                      <div key={pi} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                        {pair.map(f => (
-                          <motion.div key={f.key} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: pi * 0.08 }} viewport={{ once: true }}>
-                            <label style={labelStyle}>{f.label}</label>
-                            <input type={f.type} required placeholder={f.placeholder} value={form[f.key]}
-                              onChange={e => setForm({ ...form, [f.key]: e.target.value })} style={inputStyle}
-                              onFocus={e => e.target.style.borderColor = '#E07A20'}
-                              onBlur={e => e.target.style.borderColor = 'rgba(245,240,232,0.15)'}
-                            />
-                          </motion.div>
-                        ))}
-                      </div>
-                    ))}
-                    {[
-                      { label: 'Email Address', key: 'email', type: 'email', placeholder: 'john@example.com' },
-                    ].map((f, i) => (
-                      <motion.div key={f.key} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }} viewport={{ once: true }}>
-                        <label style={labelStyle}>{f.label}</label>
-                        <input type={f.type} required placeholder={f.placeholder} value={form[f.key]}
-                          onChange={e => setForm({ ...form, [f.key]: e.target.value })} style={inputStyle}
+                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                      <div>
+                        <label style={labelStyle}>Full Name</label>
+                        <input type="text" required placeholder="John Smith" value={form.name}
+                          onChange={e => setForm({ ...form, name: e.target.value })} style={inputStyle}
                           onFocus={e => e.target.style.borderColor = '#E07A20'}
                           onBlur={e => e.target.style.borderColor = 'rgba(245,240,232,0.15)'}
                         />
-                      </motion.div>
-                    ))}
-                    <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.18 }} viewport={{ once: true }}>
+                      </div>
+                      <div>
+                        <label style={labelStyle}>Phone Number</label>
+                        <input type="tel" placeholder="(530) 555-0000" value={form.phone}
+                          onChange={e => setForm({ ...form, phone: e.target.value })} style={inputStyle}
+                          onFocus={e => e.target.style.borderColor = '#E07A20'}
+                          onBlur={e => e.target.style.borderColor = 'rgba(245,240,232,0.15)'}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Email Address</label>
+                      <input type="email" required placeholder="john@example.com" value={form.email}
+                        onChange={e => setForm({ ...form, email: e.target.value })} style={inputStyle}
+                        onFocus={e => e.target.style.borderColor = '#E07A20'}
+                        onBlur={e => e.target.style.borderColor = 'rgba(245,240,232,0.15)'}
+                      />
+                    </div>
+
+                    <div>
                       <label style={labelStyle}>Service Needed</label>
                       <select value={form.service} onChange={e => setForm({ ...form, service: e.target.value })}
                         style={{ ...inputStyle, cursor: 'pointer' }}
@@ -141,8 +174,9 @@ export default function ContactPage() {
                           <option key={s} value={s} style={{ background: '#0A1206' }}>{s}</option>
                         ))}
                       </select>
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.24 }} viewport={{ once: true }}>
+                    </div>
+
+                    <div>
                       <label style={labelStyle}>Describe Your Job</label>
                       <textarea required rows={5} placeholder="Tell us about the trees, location, and what you need done..."
                         value={form.description} onChange={e => setForm({ ...form, description: e.target.value })}
@@ -150,20 +184,28 @@ export default function ContactPage() {
                         onFocus={e => e.target.style.borderColor = '#E07A20'}
                         onBlur={e => e.target.style.borderColor = 'rgba(245,240,232,0.15)'}
                       />
-                    </motion.div>
+                    </div>
+
+                    {error && (
+                      <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 13, color: '#E07A20' }}>
+                        Something went wrong sending your message. Please call us directly at (530) 307-0808.
+                      </p>
+                    )}
+
                     <motion.button
-                      onClick={() => setSubmitted(true)}
-                      whileHover={{ scale: 1.02, boxShadow: '0 12px 40px rgba(224,122,32,0.45)' }}
-                      whileTap={{ scale: 0.98 }}
+                      type="submit"
+                      disabled={submitting}
+                      whileHover={{ scale: submitting ? 1 : 1.02, boxShadow: submitting ? 'none' : '0 12px 40px rgba(224,122,32,0.45)' }}
+                      whileTap={{ scale: submitting ? 1 : 0.98 }}
                       style={{
                         width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                        background: 'linear-gradient(135deg, #E07A20, #F5A623)', color: '#0F1A09',
-                        padding: '18px', borderRadius: 12, border: 'none', cursor: 'pointer',
+                        background: submitting ? 'rgba(224,122,32,0.5)' : 'linear-gradient(135deg, #E07A20, #F5A623)', color: '#0F1A09',
+                        padding: '18px', borderRadius: 12, border: 'none', cursor: submitting ? 'not-allowed' : 'pointer',
                         fontFamily: "'Black Han Sans', Impact, sans-serif", fontSize: 16, fontWeight: 900,
                         letterSpacing: '0.1em', boxShadow: '0 8px 32px rgba(224,122,32,0.35)',
                       }}
-                    >SEND REQUEST</motion.button>
-                  </div>
+                    >{submitting ? 'SENDING...' : 'SEND REQUEST'}</motion.button>
+                  </form>
                 )}
               </div>
             </RevealOnScroll>
